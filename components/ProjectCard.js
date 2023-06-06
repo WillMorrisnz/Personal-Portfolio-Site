@@ -13,6 +13,17 @@ const descriptionStyle = {
   paddingTop: ".5em",
 };
 
+const titleStyle = {
+  fontFamily: "Roboto",
+  fontWeight: 600,
+  fontSize: "1rem",
+  lineHeight: "1.2rem",
+  letterSpacing: "0.08em",
+  textAlign: "center",
+  color: "#FFFFFF",
+  marginBottom: ".3rem",
+};
+
 const ProjectCard = ({ imgSrc, title, description }) => (
   <div
     style={{
