@@ -1,15 +1,96 @@
 .container {
-  padding: 0 2rem;
+  margin: auto;
+  display: block;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@keyframes bg-animation1 {
+  /* transform: rotate(0deg); */
+  0%,
+  100% {
+    background-position: right;
+  }
+  /* transform: rotate(100deg); */
+  33% {
+    background-position: left;
+    transform: rotate(10deg);
+  }
+  /* transform: rotate(-45deg); */
+  50% {
+    background-position: top;
+    background-position: right;
+  }
+
+  80% {
+    background-position: left;
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes bg-animation2 {
+  /* transform: rotate(0deg); */
+  0%,
+  100% {
+    background-position: right;
+  }
+  /* transform: rotate(100deg); */
+  40% {
+    background-position: left;
+  }
+  /* transform: rotate(-45deg); */
+  66% {
+    background-position: right;
+  }
+}
+
+.mask_screen {
+  -webkit-mask-image: url(../public/phone/screen.svg);
+  mask-image: url(../public/phone/screen.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.mask_phone {
+  -webkit-mask-image: url(../public/phone/phone_outline.svg);
+  mask-image: url(../public/phone/phone_outline.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.section2 {
+  padding: 2em 0;
+  width: 100%;
+}
+
+.screen {
+  background: #ddd;
+  background-size: 600%;
+  background-image: linear-gradient(
+    90deg,
+    rgb(30, 251, 177) 0%,
+    rgb(85, 181, 255) 31%,
+    rgb(235, 244, 68) 64%,
+    rgb(252, 177, 58) 100%
+  );
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 11px;
+  animation: bg-animation1 20s reverse infinite;
+  border-radius: 25px;
+  animation-delay: 2.5s;
+  transition-delay: 0.2s;
+
+  /* transform: rotate(105deg); */
+}
+
+.svg {
+  position: absolute;
+}
+
+.center {
+  margin: auto;
+  position: fixed;
 }
 
 .footer {
@@ -40,9 +121,19 @@
 }
 
 .title {
+  font-family: "Chivo";
+  font-weight: 600;
   margin: 0;
+  padding-top: 1em;
   line-height: 1.15;
   font-size: 4rem;
+  color: white;
+}
+
+.sub_heading {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 1.5rem;
 }
 
 .title,
@@ -126,4 +217,19 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+.template-grid {
+  gap: 1em;
+  margin: 0 auto;
+  display: grid;
+  max-width: var(--max-width);
+}
+
+.card__content {
+  align-self: end;
+  margin: 0.5rem 0.5rem 0;
+  padding: 0;
+  z-index: 1000;
+  color: white;
 }
