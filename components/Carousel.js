@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProjectCard from "./ProjectCard";
+import Head from "next/head";
 
 function Carousel({ projects }) {
   const titleStyle = {
@@ -21,20 +22,25 @@ function Carousel({ projects }) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 500,
+    swipeToSlide: true,
+    touchThreshold: 10,
     slidesToShow: 3,
     slidesToScroll: 1,
+    waitForAnimate: false,
     centerMode: true,
     focusOnSelect: true,
     centerPadding: "10%",
     cssEase: "ease-in-out",
+    autoplay: true,
+    autoplaySpeed: 10000,
     responsive: [
       {
         breakpoint: 1700,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: "-40%",
+          centerPadding: "-10%",
         },
       },
       {
@@ -50,6 +56,7 @@ function Carousel({ projects }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerPadding: "20%",
         },
       },
       {
@@ -65,6 +72,7 @@ function Carousel({ projects }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerPadding: "15%",
         },
       },
       {
@@ -72,15 +80,23 @@ function Carousel({ projects }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "10%",
+          centerPadding: "15%",
         },
       },
       {
-        breakpoint: 500,
+        breakpoint: 550,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "0",
+          centerPadding: "7.5%",
+        },
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "3%",
         },
       },
     ],

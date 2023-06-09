@@ -27,7 +27,7 @@ const titleStyle = {
 const ProjectCard = ({ imgSrc, title, description }) => (
   <div
     style={{
-      width: "100%",
+      width: "95%",
       maxWidth: "24em",
       margin: "0 auto",
       padding: "0",

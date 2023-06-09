@@ -11,11 +11,27 @@ export default function Home() {
 
   const { x } = useSpring({
     from: { x: 0 },
-    to: { x: 1 },
-    config: { duration: 1000 },
+    to: { x: 100 },
+    config: { mass: 70, friction: 120, tension: 150 },
     reset: true,
     delay: 1000,
   });
+  const fill = x.to((x) => `inset(0 ${100 - x}% 0 0)`);
+
+  const { y } = useSpring({
+    from: { y: 0 },
+    to: { y: 1 },
+    config: { mass: 10, tension: 40, friction: 0 },
+    reset: true,
+    loop: true,
+    delay: 3500,
+  });
+  const transform = y
+    .to({
+      range: [0, 1],
+      output: [1, 1.3],
+    })
+    .to((y) => `scale(${y})`);
 
   const projects = [
     {
@@ -41,15 +57,11 @@ export default function Home() {
     },
   ];
 
-  const fill = x
-    .interpolate({ range: [0.0, 1.0], output: [0, 100] })
-    .interpolate((x) => `inset(0 ${100 - x}% 0 0)`);
-
   return (
     <div className={styles.container}>
       <Head>
         <title>William Morris Portfolio Site</title>
-        <meta name="William Morris" />
+        <meta name="William Morris Portfolio Site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -63,17 +75,18 @@ export default function Home() {
                   colour="rgba(1,1,1,0)"
                 ></Screen_svg>
                 <Phone_svg
+                  id="phone"
                   className={`${styles.mask_phone} ${styles.phone} ${styles.flex_item}`}
                   colour="#42f5b6"
                 ></Phone_svg>
               </div>
 
-              <div className="flex-item">
+              <div id="subheading" className="flex-column">
                 <h2 className="flex-column subheading">
                   <span className="word-spacing">Innovative</span>
-                  <span className="word-spacing">Design.</span>
+                  <span className="word-spacing">Designs.</span>
                   <span className="word-spacing">Impactful</span>
-                  <div style={{ position: "relative" }}>
+                  <div>
                     <animated.span
                       className="word-spacing"
                       style={{
@@ -98,11 +111,23 @@ export default function Home() {
             </div>
 
             <div className="flex-column mt-5">
-              <h1 className="flex-center p-0 m-0">WILL MORRIS</h1>
+              <h1 className="flex-center m-0">WILL MORRIS</h1>
               <h5 className="flex-center p-0 m-0">
                 AWS Solution Architect, Full-stack Engineer
               </h5>
             </div>
+            <animated.img
+              src="https://will-morris-demo-s3.s3.ap-southeast-2.amazonaws.com/double-arrow-down-2.png"
+              style={{
+                ...styles,
+                transform,
+                margin: "0 auto",
+                width: "40px",
+                height: "auto",
+                paddingTop: "3em",
+              }}
+              alt="Down arrow"
+            />
           </div>
         </div>
 

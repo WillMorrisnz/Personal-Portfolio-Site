@@ -127,10 +127,15 @@ body {
   font-style: normal;
   font-weight: 900;
   font-size: 3.5rem;
-  padding-top: 50%;
-  padding-left: 1em;
+  margin: 60% auto;
+  padding-left: 10%;
   line-height: 3.5rem;
   color: #000000;
+}
+
+.slick-slider {
+  position: relative;
+  overflow: hidden;
 }
 
 .p-0 {
@@ -165,6 +170,27 @@ body {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+#phone,
+#subheading {
+  position: relative;
+}
+
+#phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  #subheading {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
 }
 
 @media (min-width: 576px) {
